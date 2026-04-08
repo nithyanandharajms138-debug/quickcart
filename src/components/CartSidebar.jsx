@@ -15,6 +15,30 @@ function CartSidebar() {
 
       <div className="cart-items">
         {cart.length === 0 ? (
+import React from 'react';
+import '../styles/CartSidebar.css';
+
+function CartSidebar({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }) {
+  // TODO: Calculate total price
+  const calculateTotal = () => {
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  };
+
+  return (
+    // TODO: Add className that changes based on isOpen
+    // Hint: className={`cart-sidebar ${isOpen ? 'open' : ''}`}
+    <div className={`cart-sidebar ${isOpen ? 'open' : ''}`}>
+      
+      {/* Header */}
+      <div className="cart-header">
+        <h2>Your Cart</h2>
+        <button onClick={onClose} className="close-btn">✕</button>
+      </div>
+
+      {/* Cart Items */}
+      <div className="cart-items">
+        {cart.length === 0 ? (
+          // TODO: Show empty cart message
           <p className="empty-cart">Your cart is empty</p>
         ) : (
           cart.map(item => (

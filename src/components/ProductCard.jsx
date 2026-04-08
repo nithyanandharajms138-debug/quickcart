@@ -29,5 +29,4 @@ function ProductCard({ product, onAddToCart }) {
     </div>
   );
 }
-
 export default ProductCard;

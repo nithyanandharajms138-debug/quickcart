@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { useState } from 'react'; // ← Add this import
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import CategoryPage from './components/CategoryPage';
@@ -7,6 +8,7 @@ import CartPage from './components/CartPage';
 import CartSidebar from './components/CartSidebar';
 import { products } from './data/products';
 import './styles/App.css';
+import CartSidebar from './components/CartSidebar'; // ← Add import
 
 function App() {
   // Remove all cart state - now in Context!
