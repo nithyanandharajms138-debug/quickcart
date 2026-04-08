@@ -89,6 +89,15 @@
   gap: 10px;
 }
 
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .cart-item button:last-child {
   background: none;
   border: none;

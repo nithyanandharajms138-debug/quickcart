@@ -1,3 +1,20 @@
+
+import React from 'react';
+import { useCart } from '../context/CartContext';
+import '../styles/CartSidebar.css';
+
+function CartSidebar() {
+  const { cart, isCartOpen, toggleCart, updateQuantity, removeFromCart, getTotalPrice } = useCart();
+
+  return (
+    <div className={`cart-sidebar ${isCartOpen ? 'open' : ''}`}>
+      <div className="cart-header">
+        <h2>Your Cart</h2>
+        <button onClick={toggleCart} className="close-btn">✕</button>
+      </div>
+
+      <div className="cart-items">
+        {cart.length === 0 ? (
 import React from 'react';
 import '../styles/CartSidebar.css';
 
@@ -32,22 +49,21 @@ function CartSidebar({ isOpen, onClose, cart, onUpdateQuantity, onRemoveItem }) 
                 <p>${item.price}</p>
               </div>
               <div className="quantity-controls">
-                <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>-</button>
+                <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
                 <span>{item.quantity}</span>
-                <button onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}>+</button>
+                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
-              <button onClick={() => onRemoveItem(item.id)}>🗑️</button>
+              <button onClick={() => removeFromCart(item.id)}>🗑️</button>
             </div>
           ))
         )}
       </div>
 
-      {/* Footer with total */}
       {cart.length > 0 && (
         <div className="cart-footer">
           <div className="cart-total">
             <span>Total:</span>
-            <span>${calculateTotal().toFixed(2)}</span>
+            <span>${getTotalPrice().toFixed(2)}</span>
           </div>
         </div>
       )}

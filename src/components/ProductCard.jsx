@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/ProductCard.css';
 
-function ProductCard({ product, onAddToCart }) {  // ← Add onAddToCart prop
+function ProductCard({ product, onAddToCart }) {
   return (
     <div className="product-card">
       <div className="product-image-container">
